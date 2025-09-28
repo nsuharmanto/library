@@ -1,46 +1,106 @@
-# Getting Started with Create React App
+# Booky Library Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern library web application built with React, TypeScript, Tailwind CSS, and shadcn/ui.
 
-## Available Scripts
+## MVP Features
 
-In the project directory, you can run:
+- **Authentication:** Login & Register (token saved in Redux)
+- **Book List:** Browse books, filter by category, and search
+- **Book Detail:** View book details, stock, reviews, and borrow button
+- **My Loans:** See your borrowed/returned books and due dates
+- **My Profile:** View and update user data, loan statistics
+- **Review:** Add and delete book reviews
+- **Optimistic UI:** Stock decreases instantly when borrowing
+- **Loading & Error States:** Consistent feedback across all pages
+- **Responsive Design:** Works on desktop and mobile
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React + TypeScript:** Main framework & type safety
+- **Tailwind CSS:** Fast, responsive styling
+- **shadcn/ui:** Ready-to-use UI components
+- **Redux Toolkit:** State management (auth, UI, cart)
+- **TanStack Query:** Data fetching & caching
+- **Day.js:** Date formatting
+- **(Optional) Framer Motion:** UI transitions & animation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Main Pages & Flow
 
-### `npm test`
+| Page           | Main Features                                 |
+|----------------|-----------------------------------------------|
+| Login/Register | Form, token storage                           |
+| Book List      | List, filter, search                          |
+| Book Detail    | Info, stock, reviews, borrow                  |
+| My Loans       | Borrowed/returned books, status, due date     |
+| My Profile     | User data, loan statistics                    |
+| (Optional) Cart| Borrow multiple books at once                 |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Main Flow:**
+1. Login/Register → save token  
+2. Browse Books → filter/search → click detail  
+3. Borrow Book → stock decreases (optimistic)  
+4. Add Review → appears instantly  
+5. My Loans → check status & due date  
+6. My Profile → update profile, view statistics  
 
-### `npm run build`
+## State Management
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Redux Toolkit**
+  - `authSlice`: token & user data
+  - `uiSlice`: filter & search
+  - `cartSlice` (optional): books to borrow
+- **TanStack Query**
+  - `useQuery`: fetch books, details, loans
+  - `useMutation`: login, borrow, review
+  - Optimistic updates for fast UX
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## UX/UI Guidelines
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Use shadcn/ui for consistent components
+- Tailwind for responsive layouts
+- Show loading & error states everywhere
+- Use toast/snackbar for feedback
+- Format dates with Day.js
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. **Install dependencies**
+   ```
+   npm install
+   ```
+2. **Run locally**
+   ```
+   npm start
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Run tests**
+   ```
+   npm test
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4. **Build for production**
+   ```
+   npm run build
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Folder Structure
 
-## Learn More
+- `src/components/` – Reusable UI components (Header, Button, etc)
+- `src/Pages/` – Main pages (Home, Login, Register, Book Detail, etc)
+- `src/lib/` – Utility functions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tips
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Work step-by-step: auth → list → detail → loans → profile  
+- Commit each feature for easy progress tracking  
+- Start with a simple design, polish the UI later  
+- You can deploy to Vercel so everyone can try it  
+
+## License
+
+MIT
+
+---
+
+*This MVP covers all essential library features: authentication, book browsing, borrowing, reviews, and user loan management. For more, see the roadmap or contribute!*
