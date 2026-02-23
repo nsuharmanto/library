@@ -1,4 +1,3 @@
-// filepath: c:\Users\Nura\Documents\Library\library_frontend\src\index.tsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';

@@ -7,9 +7,9 @@ import {
 } from '../components/ui/carousel';
 
 const heroImages = [
-  { src: '/images/hero_1.png', alt: 'Hero 1' },
-  { src: '/images/hero_2.png', alt: 'Hero 2' },
-  { src: '/images/hero_3.png', alt: 'Hero 3' },
+  { src: '/images/hero_1.svg', alt: 'Hero 1' },
+  { src: '/images/hero_2.svg', alt: 'Hero 2' },
+  { src: '/images/hero_3.svg', alt: 'Hero 3' },
 ];
 
 const heroTexts = [
@@ -61,73 +61,72 @@ const HeroCarousel: React.FC = () => {
     <div className="w-full flex flex-col items-center" style={{ position: 'relative' }}>
       {/* Carousel Image*/}
       <div
-  className="relative rounded-4xl overflow-hidden bg-white shadow w-full aspect-[2048/753]"
-  style={{
-    maxWidth,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  }}
->
-  <Carousel className="w-full h-full" opts={{ loop: true }} setApi={setEmbla}>
-    <CarouselContent>
-      {heroImages.map((img, idx) => (
-        <CarouselItem key={idx}>
-          <div className="relative w-full h-full">
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-full object-contain rounded-4xl transition-all"
-              style={{ background: '#eaf1fb' }}
-            />
-                  {/* Teks di tengah gambar, sesuai slide */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+        className="relative overflow-hidden rounded-xl md:rounded-4xl bg-white shadow w-full aspect-[2048/753]"
+        style={{
+          maxWidth,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        }}
+      >
+      <Carousel className="w-full h-full" opts={{ loop: true }} setApi={setEmbla}>
+        <CarouselContent>
+          {heroImages.map((img, idx) => (
+            <CarouselItem key={idx}>
+              <div className="relative w-full h-full">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-contain rounded-xl md:rounded-4xl transition-all"
+                  style={{ background: '#eaf1fb' }}
+                />
+                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                     <svg
                       width="100%"
-                      height="auto"
+                      height="210"
                       viewBox="0 0 900 210"
                       style={{ maxWidth: 900 }}
                       aria-hidden="true"
                     >
-                      <text
-                        x="50%"
-                        y="38%"
-                        textAnchor="middle"
-                        fontFamily="'Poppins', 'Quicksand', Arial, sans-serif"
-                        fontWeight="700"
-                        fontSize="82.52"
-                        fill={heroTextColors[idx]}
-                        stroke="#fff"
-                        strokeWidth="14"
-                        strokeLinejoin="round"
-                        dominantBaseline="middle"
-                        paintOrder="stroke fill"
-                      >
-                        {heroTexts[idx][0]}
-                      </text>
-                      <text
-                        x="50%"
-                        y="38%"
-                        dy="92.52"
-                        textAnchor="middle"
-                        fontFamily="'Poppins', 'Quicksand', Arial, sans-serif"
-                        fontWeight="700"
-                        fontSize="82.52"
-                        fill={heroTextColors[idx]}
-                        stroke="#fff"
-                        strokeWidth="14"
-                        strokeLinejoin="round"
-                        dominantBaseline="middle"
-                        paintOrder="stroke fill"
-                      >
-                        {heroTexts[idx][1]}
-                      </text>
+                    <text
+                      x="50%"
+                      y="38%"
+                      textAnchor="middle"
+                      fontFamily="'Poppins', 'Quicksand', Arial, sans-serif"
+                      fontWeight="700"
+                      fontSize="82.52"
+                      fill={heroTextColors[idx]}
+                      stroke="#fff"
+                      strokeWidth="14"
+                      strokeLinejoin="round"
+                      dominantBaseline="middle"
+                      paintOrder="stroke fill"
+                    >
+                      {heroTexts[idx][0]}
+                    </text>
+                    <text
+                      x="50%"
+                      y="38%"
+                      dy="92.52"
+                      textAnchor="middle"
+                      fontFamily="'Poppins', 'Quicksand', Arial, sans-serif"
+                      fontWeight="700"
+                      fontSize="82.52"
+                      fill={heroTextColors[idx]}
+                      stroke="#fff"
+                      strokeWidth="14"
+                      strokeLinejoin="round"
+                      dominantBaseline="middle"
+                      paintOrder="stroke fill"
+                    >
+                      {heroTexts[idx][1]}
+                    </text>
                     </svg>
                   </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
       </div>
       {/* Dots */}
       <div

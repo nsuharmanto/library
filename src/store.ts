@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import cartReducer from './features/cartSlice';
 
 export const store = configureStore({
   reducer: {
-    // Tambahkan slice di sini
+    cart: cartReducer,
   },
 });
+
+export default store;
